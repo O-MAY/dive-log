@@ -7,17 +7,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  text-align: center;
+ 
   
   background-size: 300%;
   background-image: var(--gradient);
-
 }
 
-h1 { 
-  margin: 0;
-}
+
 
 .landing {
   display: flex;
@@ -28,6 +24,7 @@ h1 {
   color: white;
   font-size: 5rem;
   font-weight: bold;
+  text-align: center;
   
   height: 100vh;
   width: 100vw;
@@ -48,17 +45,57 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  
 }
 
 .log-card {
-  width: 35vw;
+  width: 30vw;
+
+  display: flex;
+  flex-flow: column nowrap;
+
   color: whitesmoke;
   background-color: #2e2b1c8a;
   border: #000000 1px solid;
-  border-radius: 2%;
+  border-radius: 2%; 
+}
+
+.log-card, h2, h3, p {
+  margin: 0;
+  padding: 0.75rem
 }
 
 .dive-image {
   height: auto;
   width: 90%;
+  border: whitesmoke solid 0.25rem;
+  opacity: 80%;
+  align-self: center;
+  
+  margin: 0.75rem 0 0.75rem 0;
+}
+
+.delete-button {
+  font-size: medium;
+  color: #9b0202;
+  cursor: pointer;
+
+
+  position: absolute;
+  align-self: flex-end;
+}
+
+.dive-data-title {
+  color: #cbcb14fa;
+}
+
+.no-dives-message {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+
+  height: 50vh;
+  color: whitesmoke;
+  font-size: 2rem;
+  text-align: center;
 }
