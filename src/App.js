@@ -37,13 +37,18 @@ const [dives, setDives] = useState([
   }
 ])
 
+// Delete Dive
+const deleteDive = (id) => {
+  console.log('delete', id)
+  setDives(dives.filter((dive) => dive.id !== id))
+}
+
   return (
     <>
     <div className="App">
        
             <Landing />
-            <Dives dives={dives} />
-        
+            {dives.length > 0 ? <Dives dives={dives} onDelete={deleteDive} /> :( <span className='no-dives-message'>YOU DON'T HAVE ANY LOGGED DIVES TO SHOW HERE. ADD A NEW ONE BELOW, OR, GET BACK IN THE WATER!</span> )}
     </div>
     </>
   );
