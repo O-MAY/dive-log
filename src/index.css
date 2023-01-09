@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --gradient: linear-gradient(#3daabd, #1b486f, #00060b);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+  
+  background-size: 300%;
+  background-image: var(--gradient);
+
+}
+
+h1 { 
+  margin: 0;
+}
+
+
+.landing {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 0.5rem;
+ 
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+  
+  height: 100vh;
+  width: 100vw;
+}
+
+.dive-flag {
+  height: 8vh;
+  width: auto;
+  opacity: 90%;
+}
+
+
+.dives-container {
+  width: 75vw;
+  margin: 1.5rem auto 1.5rem auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.log-card {
+  width: 35vw;
+  color: whitesmoke;
+  background-color: #2e2b1c8a;
+  border: #000000 1px solid;
+  border-radius: 2%;
+}
+
+.dive-image {
+  height: auto;
+  width: 90%;
 }
