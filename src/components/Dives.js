@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Dive from './Dive'
+import AddDiveButton from './AddDiveButton'
 
 const Dives = ({ dives, onDelete }) => {
   return (
@@ -12,7 +13,8 @@ const Dives = ({ dives, onDelete }) => {
             dive={dive} 
              />
         ))}
-      
+        <AddDiveButton />
+
     </div>
   )
 }
