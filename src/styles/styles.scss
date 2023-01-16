@@ -6,7 +6,9 @@
 @import './addDiveButton';
 
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Space Mono', monospace;

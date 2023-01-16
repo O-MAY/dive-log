@@ -5,7 +5,7 @@ import AddDiveButton from './AddDiveButton'
 
 const Dives = ({ dives, onDelete }) => {
   return (
-    <div className='dives-container'>
+    <div id='dives-container'>
         {dives.map((dive, id) => (
             <Dive 
             key={id}

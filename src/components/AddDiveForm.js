@@ -1,6 +1,6 @@
 import React from 'react'
-
 import { useState } from 'react'
+import {Link} from 'react-scroll'
 
 
 const AddDive = ({ onAdd }) => {
@@ -24,40 +24,49 @@ const onSubmit = (e) => {
     setMaxDepth('')
 }
 
+let cancelClear = document.querySelector('.cancel-dive-btn');
+let inputs = document.querySelectorAll('.form-field');
+
+cancelClear.addEventListener('click', () => {
+    inputs.forEach(input => input.value = ' ')
+});
+
   return (
    
-    <div className='add-dive-form'>
-        <text>LOG A NEW DIVE</text>
+    <div id='add-dive-form'>
+        LOG A NEW DIVE
         <form onSubmit={onSubmit}>
             <div>
                 <label>DIVE SITE: </label>
-                <input type='text' placeholder='' value={diveSite} onChange={(e) => setDiveSite(e.target.value)} />
+                <input className='form-field' type='text' placeholder='' value={diveSite} onChange={(e) => setDiveSite(e.target.value)} />
             </div>
             <div>
                 <label>LOCATION: </label>
-                <input type='text' placeholder='' value={location} onChange={(e) => setLocation(e.target.value)} />
+                <input className='form-field' type='text' placeholder='' value={location} onChange={(e) => setLocation(e.target.value)} />
             </div>
             <div>
                 <label>IMAGE: </label>
-                <input type='file' placeholder='' value={img} onChange={(e) => setImg(e.target.value)} />
+                <input className='form-field' type='file' placeholder='' value={img} onChange={(e) => setImg(e.target.value)} />
             </div>
             <div>
                 <label>SIGHTED: </label>
-                <textarea type='text' placeholder='' value={sighted} onChange={(e) => setSighted(e.target.value)} />
+                <textarea className='form-field' type='text' placeholder='' value={sighted} onChange={(e) => setSighted(e.target.value)} />
             </div>
             <div>
                 <span><label>DIVE TIME: </label>
-                <input className='form-number-input' type='number' placeholder='' maxlength="3" size="3" value={diveTime} onChange={(e) => setDiveTime(e.target.value)} />
-                <text> minutes</text></span>
+                <input className='form-field form-number-input' type='number' placeholder='' maxLength="3" size="3" value={diveTime} onChange={(e) => setDiveTime(e.target.value)} />
+                 minutes</span>
             </div>
             <div>
                 <span><label>MAX DEPTH: </label>
-                <input className='form-number-input' type='number' placeholder='' maxlength="3" size="3" value={maxDepth} onChange={(e) => setMaxDepth(e.target.value)} />
-                <text> metres</text></span>
+                <input className='form-field form-number-input' type='number' placeholder='' maxLength="3" size="3" value={maxDepth} onChange={(e) => setMaxDepth(e.target.value)} />
+                metres</span>
             </div>
 
-            <input type='submit' value='Cancel' className='cancel-dive-btn' />
-            <input type='submit' value='Add Dive' className='add-dive-btn' />
+            <Link to="dives-container" spy={true} smooth={true} offset={-100} duration={500}>
+            <input className='cancel-dive-btn' type='reset' value='Cancel' />
+            </Link>
+            <input className='add-dive-btn' type='submit' value='Add Dive' />
         </form>
     </div>
    

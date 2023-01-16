@@ -48,7 +48,7 @@
   align-self: flex-end;
 }
 
-.dives-container {
+#dives-container {
   width: 80vw;
   margin: 1rem auto 1rem auto;
   display: flex;
@@ -57,7 +57,7 @@
   gap: 2rem;
 }
 
-.add-dive-form {
+#add-dive-form {
   height: auto;
   width: auto;
   display: flex;
@@ -67,28 +67,28 @@
   color: rgba(203, 203, 20, 0.9803921569);
   margin: 1rem auto 2rem auto;
 }
-.add-dive-form text {
+#add-dive-form text {
   color: #f5f5f5;
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
-.add-dive-form label {
+#add-dive-form label {
   display: block;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
 }
-.add-dive-form textarea {
+#add-dive-form textarea {
   width: 90%;
   height: 5rem;
 }
-.add-dive-form .form-number-input {
+#add-dive-form .form-number-input {
   width: 4rem;
 }
-.add-dive-form div text {
+#add-dive-form div text {
   color: #f5f5f5;
   font-size: 1rem;
 }
-.add-dive-form .add-dive-btn {
+#add-dive-form .add-dive-btn {
   width: 8rem;
   height: 3rem;
   background-color: green;
@@ -96,7 +96,7 @@
   cursor: pointer;
   margin: 1rem auto 0 2rem;
 }
-.add-dive-form .cancel-dive-btn {
+#add-dive-form .cancel-dive-btn {
   width: 8rem;
   height: 3rem;
   background-color: #9b0202;
@@ -111,7 +111,7 @@
   align-items: center;
   width: 80vw;
   height: auto;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 10rem auto;
 }
 
 .add-dive-card {
@@ -133,6 +133,10 @@
 .add-dive-card text {
   color: #f5f5f5;
   font-size: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
