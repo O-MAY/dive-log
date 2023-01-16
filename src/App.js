@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-import Landing from './components/Landing';
+import Header from './components/Header';
 import Dives from './components/Dives';
 import AddDiveForm from './components/AddDiveForm';
+import AddDiveButton from './components/AddDiveButton';
+import NoDivesMessage from './components/NoDivesMessage';
 
 
 
@@ -55,11 +57,10 @@ const addDive = (dive) => {
     <>
     <div className="App">
        
-            <Landing />
+            <Header />
             {dives.length > 0 ? <Dives dives={dives} onDelete={deleteDive} /> 
-            :( <span className='no-dives-message'>
-              YOU DON'T HAVE ANY LOGGED DIVES TO SHOW HERE. ADD A NEW ONE BELOW, 
-              OR, GET BACK IN THE WATER!</span> )}
+            :(<NoDivesMessage />)} 
+              {dives.length > 0 ? '' : <div id='add-dive-button-no-dives'><AddDiveButton /></div>}
             <AddDiveForm onAdd={addDive} />
     </div>
     </>
