@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react'
 import React from 'react'
 import { useState } from 'react'
 import {Link} from 'react-scroll'
@@ -24,15 +25,7 @@ const onSubmit = (e) => {
     setMaxDepth('')
 }
 
-let cancelClear = document.querySelector('.cancel-dive-btn');
-let inputs = document.querySelectorAll('.form-field');
-
-cancelClear.addEventListener('click', () => {
-    inputs.forEach(input => input.value = ' ')
-});
-
   return (
-   
     <div id='add-dive-form'>
         LOG A NEW DIVE
         <form onSubmit={onSubmit}>
@@ -53,14 +46,12 @@ cancelClear.addEventListener('click', () => {
                 <textarea className='form-field' type='text' placeholder='' value={sighted} onChange={(e) => setSighted(e.target.value)} />
             </div>
             <div>
-                <span><label>DIVE TIME: </label>
-                <input className='form-field form-number-input' type='number' placeholder='' maxLength="3" size="3" value={diveTime} onChange={(e) => setDiveTime(e.target.value)} />
-                 minutes</span>
+                <label>DIVE TIME: </label>
+                <span><input className='form-field form-number-input' type='number' placeholder='' maxLength="3" size="3" value={diveTime} onChange={(e) => setDiveTime(e.target.value)} /> minutes</span>
             </div>
             <div>
-                <span><label>MAX DEPTH: </label>
-                <input className='form-field form-number-input' type='number' placeholder='' maxLength="3" size="3" value={maxDepth} onChange={(e) => setMaxDepth(e.target.value)} />
-                metres</span>
+                <label>MAX DEPTH: </label>
+                <span><input className='form-field form-number-input' type='number' placeholder='' maxLength="3" size="3" value={maxDepth} onChange={(e) => setMaxDepth(e.target.value)} /> metres</span>
             </div>
 
             <Link to="dives-container" spy={true} smooth={true} offset={-100} duration={500}>
