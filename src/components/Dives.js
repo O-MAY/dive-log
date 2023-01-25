@@ -10,11 +10,10 @@ const Dives = ({ dives, onDelete }) => {
             <Dive 
             key={id}
             onDelete={onDelete}
-            dive={dive} 
+            dive={dive}
              />
         ))}
         <AddDiveButton />
-
     </div>
   )
 }

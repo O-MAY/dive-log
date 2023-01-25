@@ -1,10 +1,13 @@
 .add-dive-button-container {
     display: flex;
-    justify-content: center;
+    flex-flow: column nowrap;
     align-items: center;
-    width: 80vw;
+    width: 35vw;
     height: auto;
-    margin: 0 auto 10rem auto;
+    padding: 0.5rem;
+
+    margin: auto auto auto auto;
+    
 }
 
 .add-dive-card {
@@ -16,9 +19,11 @@
     justify-content: center;
     align-items: center;
   
-    background-color: #33a19bc3;
-    border: #000000 1px solid;
+    background-color: #9b0202;
+    border: $titleColor1 10px solid;
     border-radius: 100%;
+
+    margin: 0;
 
     cursor: pointer;
     
@@ -27,8 +32,8 @@
         font-size: 5rem;
         color: $titleColor1;
     }
-    text {
-        color: $titleColor1;
+    h2 {
         font-size: 1rem;
+        color: $titleColor1;
     }
 }

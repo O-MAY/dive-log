@@ -5,8 +5,7 @@ import Dives from './components/Dives';
 import AddDiveForm from './components/AddDiveForm';
 import AddDiveButton from './components/AddDiveButton';
 import NoDivesMessage from './components/NoDivesMessage';
-
-
+import UseForm from './components/UseForm';
 
 function App() {
 
@@ -62,6 +61,7 @@ const addDive = (dive) => {
             :(<NoDivesMessage />)} 
               {dives.length > 0 ? '' : <div id='add-dive-button-no-dives'><AddDiveButton /></div>}
             <AddDiveForm onAdd={addDive} />
+            <UseForm onAdd={addDive} />
     </div>
     </>
   );

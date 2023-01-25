@@ -9,6 +9,8 @@
     border: #000000 1px solid;
     border-radius: 2%;
 
+    padding: 0.5rem;
+
     h2, h3 {
         color: $titleColor1;
         margin: 0;
@@ -20,8 +22,9 @@
             padding: 0.75rem
         }
     img {
-        height: auto;
         width: 90%;
+        max-height: 10rem;
+        object-fit: cover;
         border: whitesmoke solid 0.25rem;
         opacity: 80%;
         align-self: center;
@@ -32,12 +35,17 @@
         font-size: large;
         color: #9b0202;
         cursor: pointer;
-        padding: 0.75rem;
       
         position: absolute;
         align-self: flex-end;
       }
 }
+
+@media only screen and (min-width: 600px) {
+    .dive-card {
+        width: 35vw;
+    }
+  }
     
 
 
