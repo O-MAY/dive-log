@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
-import Landing from './components/Landing';
+import Header from './components/Header';
 import Dives from './components/Dives';
-
-
+import AddDiveForm from './components/AddDiveForm';
+import AddDiveButton from './components/AddDiveButton';
+import NoDivesMessage from './components/NoDivesMessage';
+import UseForm from './components/UseForm';
 
 function App() {
 
@@ -13,7 +15,7 @@ const [dives, setDives] = useState([
     diveSite: 'MENJANGAN ISLAND',
     location: 'BALI',
     img: './images/menjangan-island.jpg',
-    spotted: 'Moray eel, Reef Shark',
+    sighted: 'Moray eel, Reef Shark',
     diveTime: 39,
     maxDepth: 28
   },
@@ -22,7 +24,7 @@ const [dives, setDives] = useState([
     diveSite: 'LIGHTHOUSE',
     location: 'KOH TAO, THAILAND',
     img: './images/koh-tao.jpg',
-    spotted: 'Whale Shark',
+    sighted: 'Whale Shark',
     diveTime: 42,
     maxDepth: 30
   },
@@ -31,7 +33,7 @@ const [dives, setDives] = useState([
     diveSite: 'AKITSUSHIMA WRECK',
     location: 'PHILIPPINES',
     img: './images/akitsushima.jpg',
-    spotted: 'Barracuda',
+    sighted: 'Barracuda',
     diveTime: 27,
     maxDepth: 38
   }
@@ -43,12 +45,23 @@ const deleteDive = (id) => {
   setDives(dives.filter((dive) => dive.id !== id))
 }
 
+// Add Dive
+const addDive = (dive) => {
+  const id = Math.floor(Math.random() * 10000) + 1
+  const newDive = { id, ...dive }
+  setDives([...dives, newDive])
+}
+
   return (
     <>
     <div className="App">
        
-            <Landing />
-            {dives.length > 0 ? <Dives dives={dives} onDelete={deleteDive} /> :( <span className='no-dives-message'>YOU DON'T HAVE ANY LOGGED DIVES TO SHOW HERE. ADD A NEW ONE BELOW, OR, GET BACK IN THE WATER!</span> )}
+            <Header />
+            {dives.length > 0 ? <Dives dives={dives} onDelete={deleteDive} /> 
+            :(<NoDivesMessage />)} 
+              {dives.length > 0 ? '' : <div id='add-dive-button-no-dives'><AddDiveButton /></div>}
+            <AddDiveForm onAdd={addDive} />
+            <UseForm onAdd={addDive} />
     </div>
     </>
   );
