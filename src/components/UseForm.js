@@ -4,11 +4,18 @@ import {Link} from 'react-scroll'
 
 export default function UseForm({ onAdd }) {
 
-const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => {
+const successMessage = 'Dive has been logged.'
+
+const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = useForm();
+  const onSubmit = (data) => {
     onAdd(data)
-    console.log('Submit button pressed.');
+    reset()
+    console.log(successMessage)
   };
+
+  const onCancel = () => {
+    reset()
+  }
 
   return (
     <div id='add-dive-form'>
@@ -21,9 +28,9 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                     type='text' 
                     placeholder='' 
                 />
-               <p style={{color: "red"}}>
+               <strong><p style={{color: "red"}}>
                   {errors.diveSite?.type === "required" && "Field is required."}
-                </p>    
+                </p></strong>    
             </div>
             <div>
                 <label>LOCATION:</label>
@@ -32,9 +39,9 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                     type='text' 
                     placeholder='' 
                 />
-                <p style={{color: "red"}}>
+                <strong><p style={{color: "red"}}>
                   {errors.location?.type === "required" && "Field is required."}
-                </p>
+                </p></strong>
             </div>
             <div>
                 <label>IMAGE:</label>
@@ -51,10 +58,10 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                 type='text' 
                 placeholder='' 
                />
-               <p style={{color: "red"}}>
+               <strong><p style={{color: "red"}}>
                   {errors.sighted?.type === "required" && "Field is required."}
                   {errors.sighted?.type === "maxLength" && "Maximum character length is 120."}
-                </p>
+                </p></strong>
             </div>
             <div>
                 <label>DIVE TIME:</label>
@@ -64,7 +71,7 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                 placeholder='' 
                 /> minutes</span>
                 <strong><p style={{color: "red"}}>
-                  {errors.diveTime?.type === "required" && "Dive is required."}
+                  {errors.diveTime?.type === "required" && "Field is required."}
                   {errors.diveTime?.type === "max" && "Wow there! Your dive time was longer than the world record.. Try again."}
                 </p></strong> 
             </div>
@@ -78,15 +85,16 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                 size="3" 
                 /> metres</span>
                 <strong><p style={{color: "red"}}>
-                  {errors.maxDepth?.type === "required" && "Dive is required."}
+                  {errors.maxDepth?.type === "required" && "Field is required."}
                   {errors.maxDepth?.type === "max" && "The Mariana Trench is 11,034m deep. Are you sure you got your depth correct?"}
                 </p></strong>    
             </div>
 
             <Link to="dives-container" spy={true} smooth={true} offset={-100} duration={500}>
-            <button className='cancel-dive-btn'>Cancel</button>
+            <input className='cancel-dive-btn' value='Cancel' type="reset" onClick={onCancel} />
             </Link>
             <input className='add-dive-btn' value='Add Dive' type='submit' />
+            {isSubmitted.formState ? <p>Hello</p> : ''}
         </form>
     </div>
   )

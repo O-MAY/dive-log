@@ -23,11 +23,13 @@
         }
     img {
         width: 90%;
-        max-height: 10rem;
-        object-fit: cover;
+        max-height: 14rem;
+        object-fit: contain;
         border: whitesmoke solid 0.25rem;
         opacity: 80%;
         align-self: center;
+
+        background-color: #000000;
         
         margin: 0.75rem 0 0.75rem 0;
     }
