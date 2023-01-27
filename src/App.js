@@ -2,10 +2,9 @@ import { useState } from 'react';
 
 import Header from './components/Header';
 import Dives from './components/Dives';
-import AddDiveForm from './components/AddDiveForm';
 import AddDiveButton from './components/AddDiveButton';
 import NoDivesMessage from './components/NoDivesMessage';
-import UseForm from './components/UseForm';
+import AddDiveForm from './components/AddDiveForm';
 
 function App() {
 
@@ -60,8 +59,9 @@ const addDive = (dive) => {
             {dives.length > 0 ? <Dives dives={dives} onDelete={deleteDive} /> 
             :(<NoDivesMessage />)} 
               {dives.length > 0 ? '' : <div id='add-dive-button-no-dives'><AddDiveButton /></div>}
+            <div className='dive-to-add-dive' />
             <AddDiveForm onAdd={addDive} />
-            <UseForm onAdd={addDive} />
+            <div className='add-dive-depth' />
     </div>
     </>
   );
