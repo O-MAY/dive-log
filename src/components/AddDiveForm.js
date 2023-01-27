@@ -1,25 +1,32 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
+import { useState } from 'react';
 import {Link} from 'react-scroll'
 
-export default function UseForm({ onAdd }) {
+export default function AddDiveForm({ onAdd }) {
 
-const successMessage = 'Dive has been logged.'
+  const [success, setSuccess] = useState ("")
+  const successDelay = ms => new Promise(res => setTimeout(res, ms));
 
-const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = useForm();
-  const onSubmit = (data) => {
-    onAdd(data)
-    reset()
-    console.log(successMessage)
-  };
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const onCancel = () => {
-    reset()
-  }
+    const onSubmit = async (data) => {
+      onAdd(data)
+      reset()
+      setSuccess('DIVE HAS BEEN ADDED')
+      await successDelay(5000)
+      setSuccess('')
+    };
+
+    const onCancel = () => {
+      reset()
+    }
+
+  let successComponent = success && <p>{success}</p>
 
   return (
     <div id='add-dive-form'>
-        <h1>UseForm</h1>
+        <h1>ADD DIVE</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <label>DIVE SITE:</label>
@@ -28,8 +35,8 @@ const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = us
                     type='text' 
                     placeholder='' 
                 />
-               <strong><p style={{color: "red"}}>
-                  {errors.diveSite?.type === "required" && "Field is required."}
+               <strong><p className='error-message'>
+                  {errors.diveSite?.type === "required" && "Field is required"}
                 </p></strong>    
             </div>
             <div>
@@ -39,16 +46,16 @@ const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = us
                     type='text' 
                     placeholder='' 
                 />
-                <strong><p style={{color: "red"}}>
-                  {errors.location?.type === "required" && "Field is required."}
+                <strong><p className='error-message'>
+                  {errors.location?.type === "required" && "Field is required"}
                 </p></strong>
             </div>
             <div>
                 <label>IMAGE:</label>
                 <input {...register("img", { required: false })}
-                className='form-field' 
+                className='image-upload form-field' 
                 type='file' 
-                placeholder='' 
+                placeholder='Upload image'
                 />
             </div>
             <div>
@@ -58,9 +65,9 @@ const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = us
                 type='text' 
                 placeholder='' 
                />
-               <strong><p style={{color: "red"}}>
-                  {errors.sighted?.type === "required" && "Field is required."}
-                  {errors.sighted?.type === "maxLength" && "Maximum character length is 120."}
+               <strong><p className='error-message'>
+                  {errors.sighted?.type === "required" && "Field is required"}
+                  {errors.sighted?.type === "maxLength" && "Maximum character length is 120"}
                 </p></strong>
             </div>
             <div>
@@ -70,8 +77,8 @@ const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = us
                 type='number' 
                 placeholder='' 
                 /> minutes</span>
-                <strong><p style={{color: "red"}}>
-                  {errors.diveTime?.type === "required" && "Field is required."}
+                <strong><p className='error-message'>
+                  {errors.diveTime?.type === "required" && "Field is required"}
                   {errors.diveTime?.type === "max" && "Wow there! Your dive time was longer than the world record.. Try again."}
                 </p></strong> 
             </div>
@@ -84,18 +91,19 @@ const { register, handleSubmit, reset, formState: { isSubmitted, errors } } = us
                 maxLength="11,034" 
                 size="3" 
                 /> metres</span>
-                <strong><p style={{color: "red"}}>
-                  {errors.maxDepth?.type === "required" && "Field is required."}
+                <strong><p className='error-message'>
+                  {errors.maxDepth?.type === "required" && "Field is required"}
                   {errors.maxDepth?.type === "max" && "The Mariana Trench is 11,034m deep. Are you sure you got your depth correct?"}
                 </p></strong>    
             </div>
-
-            <Link to="dives-container" spy={true} smooth={true} offset={-100} duration={500}>
-            <input className='cancel-dive-btn' value='Cancel' type="reset" onClick={onCancel} />
-            </Link>
-            <input className='add-dive-btn' value='Add Dive' type='submit' />
-            {isSubmitted.formState ? <p>Hello</p> : ''}
+            <div className='cancel-submit-fb'>
+              <Link to="header" spy={true} smooth={true} offset={-50} duration={1000}>
+              <input className='cancel-dive-btn' value='Cancel' type="reset" onClick={onCancel} />
+              </Link>
+              <input className='add-dive-btn' value='Add Dive' type='submit' />
+            </div>
         </form>
+        <strong className='success-component'>{successComponent}</strong> 
     </div>
   )
 }
