@@ -8,6 +8,7 @@
   
     color: $titleColor2;
     background-color: #00000077;
+    border-radius: 5px;
     margin: 0 auto 0 auto;
     padding: 2rem;
 
@@ -72,7 +73,6 @@
         color: #f5f5f5;
         cursor: pointer;
         
-
         border-radius: 5%;
     }
     .success-component {
