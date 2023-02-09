@@ -26,10 +26,6 @@
         background-color: #ffffffb3;
     }
 
-    .image-upload {
-        background-color: transparent;
-    }
-
     textarea {
         width: 100%;
         height: 3rem;
@@ -52,6 +48,7 @@
         display: flex;
         justify-content: space-between;
         margin-top: 1rem;
+        gap: 2rem;
     }
  
     .add-dive-btn {

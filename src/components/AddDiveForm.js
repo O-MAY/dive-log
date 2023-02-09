@@ -51,23 +51,23 @@ export default function AddDiveForm({ onAdd }) {
                 </p></strong>
             </div>
             <div>
-                <label>IMAGE:</label>
+                <label>IMAGE URL:</label>
                 <input {...register("img", { required: false })}
-                className='image-upload form-field' 
-                type='file' 
-                placeholder='Upload image'
+                className='form-field' 
+                type='url' 
+                placeholder='Image URL'
                 />
             </div>
             <div>
                 <label>SIGHTED:</label>
-                <textarea {...register("sighted", { required: true, maxLength: 120 })}
+                <textarea {...register("sighted", { required: true, maxLength: 130 })}
                 className='form-field' 
                 type='text' 
                 placeholder='' 
                />
                <strong><p className='error-message'>
                   {errors.sighted?.type === "required" && "Field is required"}
-                  {errors.sighted?.type === "maxLength" && "Maximum character length is 120"}
+                  {errors.sighted?.type === "maxLength" && "Maximum character length is 130"}
                 </p></strong>
             </div>
             <div>

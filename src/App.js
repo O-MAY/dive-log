@@ -9,32 +9,36 @@ import AddDiveForm from './components/AddDiveForm';
 function App() {
 
 const [dives, setDives] = useState([
+
+  // Copy and paste this object into db.json if you delete all the dive objects in a running version.
+  // THE DATA BELOW IS JSON AND WILL NOT WORK IF YOU TRY TO USE IT OUTSIDE OF db.json
+
   // {
-  //   id: 1,
-  //   diveSite: 'MENJANGAN ISLAND',
-  //   location: 'BALI',
-  //   img: './images/menjangan-island.jpg',
-  //   sighted: 'Moray eel, Reef Shark',
-  //   diveTime: 39,
-  //   maxDepth: 28
+  //   "id": 1,
+  //   "diveSite": "MENJANGAN ISLAND",
+  //   "location": "BALI",
+  //   "img": "./images/menjangan-island.jpg",
+  //   "sighted": "Moray eel, Reef Shark",
+  //   "diveTime": 39,
+  //   "maxDepth": 28
   // },
   // {
-  //   id: 2,
-  //   diveSite: 'LIGHTHOUSE',
-  //   location: 'KOH TAO, THAILAND',
-  //   img: './images/koh-tao.jpg',
-  //   sighted: 'Whale Shark',
-  //   diveTime: 42,
-  //   maxDepth: 30
+  //   "id": 2,
+  //   "diveSite": "LIGHTHOUSE",
+  //   "location": "KOH TAO, THAILAND",
+  //   "img": "./images/koh-tao.jpg",
+  //   "sighted": "Whale Shark",
+  //   "diveTime": 42,
+  //   "maxDepth": 30
   // },
   // {
-  //   id: 3,
-  //   diveSite: 'AKITSUSHIMA WRECK',
-  //   location: 'PHILIPPINES',
-  //   img: './images/akitsushima.jpg',
-  //   sighted: 'Barracuda',
-  //   diveTime: 27,
-  //   maxDepth: 38
+  //   "id": 3,
+  //   "diveSite": "AKITSUSHIMA WRECK",
+  //   "location": "PHILIPPINES",
+  //   "img": "./images/akitsushima.jpg",
+  //   "sighted": "Barracuda",
+  //   "diveTime": 27,
+  //   "maxDepth": 38 
   // }
 ])
 

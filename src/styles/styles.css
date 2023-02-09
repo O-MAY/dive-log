@@ -19,6 +19,7 @@
 
 .dive-card {
   width: 80vw;
+  height: 500px;
   display: flex;
   flex-flow: column nowrap;
   background-color: rgba(46, 43, 28, 0.5411764706);
@@ -37,8 +38,8 @@
   padding: 0.75rem;
 }
 .dive-card img {
-  width: 90%;
-  max-height: 14rem;
+  width: 85%;
+  max-height: 12rem;
   -o-object-fit: contain;
      object-fit: contain;
   border: whitesmoke solid 0.25rem;
@@ -98,9 +99,6 @@
 #add-dive-form input {
   background-color: rgba(255, 255, 255, 0.7019607843);
 }
-#add-dive-form .image-upload {
-  background-color: transparent;
-}
 #add-dive-form textarea {
   width: 100%;
   height: 3rem;
@@ -120,6 +118,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  gap: 2rem;
 }
 #add-dive-form .add-dive-btn {
   width: 8rem;
