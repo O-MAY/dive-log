@@ -54,7 +54,7 @@ useEffect(() => {
 // Fetch Dives
 const fetchDives = async () => {
 
-  const res = await fetch('http://localhost:5000/dives')
+  const res = await fetch('https://my-json-server.typicode.com/O-MAY/dives-db-json/dives')
   const data = await res.json()
 
   return data
@@ -62,7 +62,7 @@ const fetchDives = async () => {
 
 // Delete Dive
 const deleteDive = async (id) => {
-  await fetch(`http://localhost:5000/dives/${id}`, {
+  await fetch(`https://my-json-server.typicode.com/O-MAY/dives-db-json/dives${id}`, {
     method: 'DELETE',
   })
 
@@ -71,7 +71,7 @@ const deleteDive = async (id) => {
 
 // Add Dive
 const addDive = async (dive) => {
-  const res = await fetch('http://localhost:5000/dives', {
+  const res = await fetch('https://my-json-server.typicode.com/O-MAY/dives-db-json/dives', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json'
